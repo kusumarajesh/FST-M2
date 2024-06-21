@@ -10,6 +10,6 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
-    image: "charumathyp/visits"
+    image: "rajeshkusuma/visits"
     ports:
         - "8081:8081"

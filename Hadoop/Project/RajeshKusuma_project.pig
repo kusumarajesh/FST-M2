@@ -1,7 +1,7 @@
 -- Load input file from HDFS
-inputFile1 = LOAD 'hdfs:///user/charumathyp/inputs/episodeIV_dialogues.txt' USING PigStorage('\t') AS (name:chararray,line:chararray);
-inputFile2 = LOAD 'hdfs:///user/charumathyp/inputs/episodeV_dialogues.txt' USING PigStorage('\t') AS (name:chararray,line:chararray);
-inputFile3 = LOAD 'hdfs:///user/charumathyp/inputs/episodeVI_dialogues.txt' USING PigStorage('\t') AS (name:chararray,line:chararray);
+inputFile1 = LOAD 'hdfs:///user/rajeshkusuma/inputs/episodeIV_dialogues.txt' USING PigStorage('\t') AS (name:chararray,line:chararray);
+inputFile2 = LOAD 'hdfs:///user/rajeshkusuma/inputs/episodeV_dialogues.txt' USING PigStorage('\t') AS (name:chararray,line:chararray);
+inputFile3 = LOAD 'hdfs:///user/rajeshkusuma/inputs/episodeVI_dialogues.txt' USING PigStorage('\t') AS (name:chararray,line:chararray);
 
 randked1 = RANK  inputFile1;
 onlydialog1 = FILTER ranked1 BY(rank_inputFile1>2);  
@@ -18,6 +18,6 @@ names = FOREACH groupByName generate $0 AS name, COUNT($1) as numberOfLines;
 
 ordered = ORDER names BY numberOfLines DESC;
 
-STORE ordered INTO 'hdfs:///user/charumathyp/output' USING PigStorage('\t');
+STORE ordered INTO 'hdfs:///user/rajeshkusuma/output' USING PigStorage('\t');
 
 

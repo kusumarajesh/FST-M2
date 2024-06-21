@@ -16,7 +16,7 @@ services:
     # api server    
     api:
         build: ./server
-        image: "charumathyp/complex_api"   
+        image: "rajeshkusuma/complex_api"   
         environment:
             - REDIS_HOST=redis_db
             - REDIS_PORT=6379
@@ -27,12 +27,12 @@ services:
     #worker service
     worker:
         build: ./worker
-        image: "charumathyp/complex_worker"
+        image: "rajeshkusuma/complex_worker"
         environment: 
             - REDIS_HOST=redis_db
             - REDIS_PORT=6379
      # client service
     client:
         build: ./client
-        image: "charumathyp/complex_client"  
+        image: "rajeshkusuma/complex_client"  
 
